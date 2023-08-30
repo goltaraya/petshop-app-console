@@ -23,5 +23,5 @@ public class Menu
         System.Console.Write("Digite o código da opção: ");
 
     }
-    
+
 }
