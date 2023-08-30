@@ -21,7 +21,7 @@ while (!stopLoop)
             System.Console.WriteLine("==========================");
             System.Console.WriteLine("== CADASTRO DE PRODUTOS ==");
             System.Console.WriteLine("==========================");
-            System.Console.Write("ID:");
+            System.Console.Write("ID: ");
             int id = int.Parse(Console.ReadLine());
             System.Console.Write("Nome: ");
             string name = Console.ReadLine();
@@ -70,7 +70,7 @@ while (!stopLoop)
                 }
                 else
                 {
-                    System.Console.WriteLine($"{productFound.Id}: {productFound.Name}, stock: {productFound.QuantityInStock}, price: $ {productFound.Price.ToString("F2", CultureInfo.InvariantCulture)}");
+                    System.Console.WriteLine($"{productFound.Id}: {productFound.Name}, preço: R$ {productFound.Price.ToString("F2", CultureInfo.InvariantCulture)}, estoque: {productFound.QuantityInStock}");
                 }
             }
             System.Console.WriteLine("Pressione qualquer tecla para seguir...");
@@ -117,6 +117,30 @@ while (!stopLoop)
 
             System.Console.WriteLine("Pressione qualquer tecla para seguir...");
             Console.ReadKey();
+
+            break;
+        case 4:
+            Console.Clear();
+            System.Console.WriteLine("=============");
+            System.Console.WriteLine("== ESTOQUE ==");
+            System.Console.WriteLine("=============");
+            if (productsList.Count == 0)
+            {
+                System.Console.WriteLine("Não existem produtos cadastrados");
+            }
+            else
+            {
+                foreach (Product productInList in productsList)
+                {
+                    System.Console.WriteLine($"{productInList.Id}: {productInList.Name}, preço ${productInList.Price}, quantidade: {productInList.QuantityInStock}");
+                }
+            }
+            System.Console.WriteLine("Pressione qualquer tecla para seguir...");
+            Console.ReadKey();
+
+            break;
+
+        case 5:
 
             break;
 
