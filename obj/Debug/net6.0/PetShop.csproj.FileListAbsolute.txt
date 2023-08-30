@@ -1,0 +1,15 @@
+/home/yago/Documentos/codes/dotineti/PetShop/bin/Debug/net6.0/PetShop
+/home/yago/Documentos/codes/dotineti/PetShop/bin/Debug/net6.0/PetShop.deps.json
+/home/yago/Documentos/codes/dotineti/PetShop/bin/Debug/net6.0/PetShop.runtimeconfig.json
+/home/yago/Documentos/codes/dotineti/PetShop/bin/Debug/net6.0/PetShop.dll
+/home/yago/Documentos/codes/dotineti/PetShop/bin/Debug/net6.0/PetShop.pdb
+/home/yago/Documentos/codes/dotineti/PetShop/obj/Debug/net6.0/PetShop.csproj.AssemblyReference.cache
+/home/yago/Documentos/codes/dotineti/PetShop/obj/Debug/net6.0/PetShop.GeneratedMSBuildEditorConfig.editorconfig
+/home/yago/Documentos/codes/dotineti/PetShop/obj/Debug/net6.0/PetShop.AssemblyInfoInputs.cache
+/home/yago/Documentos/codes/dotineti/PetShop/obj/Debug/net6.0/PetShop.AssemblyInfo.cs
+/home/yago/Documentos/codes/dotineti/PetShop/obj/Debug/net6.0/PetShop.csproj.CoreCompileInputs.cache
+/home/yago/Documentos/codes/dotineti/PetShop/obj/Debug/net6.0/PetShop.dll
+/home/yago/Documentos/codes/dotineti/PetShop/obj/Debug/net6.0/refint/PetShop.dll
+/home/yago/Documentos/codes/dotineti/PetShop/obj/Debug/net6.0/PetShop.pdb
+/home/yago/Documentos/codes/dotineti/PetShop/obj/Debug/net6.0/PetShop.genruntimeconfig.cache
+/home/yago/Documentos/codes/dotineti/PetShop/obj/Debug/net6.0/ref/PetShop.dll
