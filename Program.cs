@@ -43,8 +43,11 @@ while (!stopLoop)
             System.Console.Write("Insira o ID do produto que deseja buscar: ");
             int idSearch = int.Parse(Console.ReadLine());
 
-            Product productFound = new Product();
-            productFound.Id = -1;
+            Product productFound = new Product
+            {
+                Id = -1
+            };
+
             foreach (Product productSearch in productsList)
             {
                 if (productSearch.Id == idSearch)
@@ -63,6 +66,49 @@ while (!stopLoop)
             }
             System.Console.WriteLine("Pressione qualquer tecla para seguir...");
             Console.ReadKey();
+            break;
+
+        case 3:
+            Console.Clear();
+            System.Console.WriteLine("=====================");
+            System.Console.WriteLine("== DELETAR PRODUTO ==");
+            System.Console.WriteLine("=====================");
+            if (productsList.Count == 0)
+            {
+                System.Console.WriteLine("Não existem produtos cadastrados");
+            }
+            else
+            {
+                System.Console.Write("Insira o ID do produto que deseja deletar: ");
+                idSearch = int.Parse(Console.ReadLine());
+
+                productFound = new Product
+                {
+                    Id = -1
+                };
+
+                foreach (Product productSearch in productsList)
+                {
+                    if (productSearch.Id == idSearch)
+                    {
+                        productFound = productSearch;
+                        break;
+                    }
+                };
+                if (productFound.Id == -1)
+                {
+                    System.Console.WriteLine("O produto aparentemente não está cadastrado no sistema.");
+                }
+                else
+                {
+                    productsList.Remove(productFound);
+                    System.Console.WriteLine($"Produto {productFound.Name} ({productFound.Id}) excluído");
+                }
+            }
+
+            System.Console.WriteLine("Pressione qualquer tecla para seguir...");
+            Console.ReadKey();
+
             break;
     }
 }
