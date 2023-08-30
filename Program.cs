@@ -40,29 +40,38 @@ while (!stopLoop)
             System.Console.WriteLine("=======================");
             System.Console.WriteLine("== BUSCA DE PRODUTOS ==");
             System.Console.WriteLine("=======================");
-            System.Console.Write("Insira o ID do produto que deseja buscar: ");
-            int idSearch = int.Parse(Console.ReadLine());
-
-            Product productFound = new Product
+            if (productsList.Count == 0)
             {
-                Id = -1
-            };
-
-            foreach (Product productSearch in productsList)
-            {
-                if (productSearch.Id == idSearch)
-                {
-                    productFound = productSearch;
-                    break;
-                }
-            };
-            if (productFound.Id == -1)
-            {
-                System.Console.WriteLine("O produto aparentemente não está cadastrado no sistema.");
+                System.Console.WriteLine("Não existem produtos cadastrados");
             }
             else
             {
-                System.Console.WriteLine($"{productFound.Id}: {productFound.Name}, stock: {productFound.QuantityInStock}, price: $ {productFound.Price.ToString("F2", CultureInfo.InvariantCulture)}");
+
+
+                System.Console.Write("Insira o ID do produto que deseja buscar: ");
+                int idSearch = int.Parse(Console.ReadLine());
+
+                Product productFound = new Product
+                {
+                    Id = -1
+                };
+
+                foreach (Product productSearch in productsList)
+                {
+                    if (productSearch.Id == idSearch)
+                    {
+                        productFound = productSearch;
+                        break;
+                    }
+                };
+                if (productFound.Id == -1)
+                {
+                    System.Console.WriteLine("O produto aparentemente não está cadastrado no sistema.");
+                }
+                else
+                {
+                    System.Console.WriteLine($"{productFound.Id}: {productFound.Name}, stock: {productFound.QuantityInStock}, price: $ {productFound.Price.ToString("F2", CultureInfo.InvariantCulture)}");
+                }
             }
             System.Console.WriteLine("Pressione qualquer tecla para seguir...");
             Console.ReadKey();
@@ -80,9 +89,9 @@ while (!stopLoop)
             else
             {
                 System.Console.Write("Insira o ID do produto que deseja deletar: ");
-                idSearch = int.Parse(Console.ReadLine());
+                int idSearch = int.Parse(Console.ReadLine());
 
-                productFound = new Product
+                Product productFound = new Product
                 {
                     Id = -1
                 };
@@ -109,6 +118,12 @@ while (!stopLoop)
             System.Console.WriteLine("Pressione qualquer tecla para seguir...");
             Console.ReadKey();
 
+            break;
+
+        case 0:
+            System.Console.WriteLine("Obrigado por usar nosso sistema! Até mais! Pressione qualquer tecla para sair...");
+            System.Console.ReadKey();
+            stopLoop = true;
             break;
     }
 }

@@ -18,7 +18,7 @@ public class Menu
         System.Console.WriteLine("(6) - Buscar cliente");
         System.Console.WriteLine("(7) - Excluir cliente");
         System.Console.WriteLine("(8) - Exibir clientes");
-        System.Console.WriteLine("(8) - Sair");
+        System.Console.WriteLine("(0) - Sair");
 
         System.Console.Write("Digite o código da opção: ");
 
