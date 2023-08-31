@@ -126,6 +126,7 @@ while (!stopLoop)
             }
             else
             {
+                System.Console.WriteLine($"Total de {productsList.Count} produtos encontrados.");
                 foreach (Product productInList in productsList)
                 {
                     Console.WriteLine($"{productInList.Id}: {productInList.Name}, preço ${productInList.Price}, quantidade: {productInList.QuantityInStock}");
@@ -214,7 +215,26 @@ while (!stopLoop)
                     clientsList.Remove(client);
                 }
             }
+            break;
 
+        case 8:
+            Console.Clear();
+            System.Console.WriteLine("=====================");
+            System.Console.WriteLine("== EXIBIR CLIENTES ==");
+            System.Console.WriteLine("=====================");
+
+            if (clientsList.Count == 0)
+            {
+                System.Console.WriteLine("Não há clientes cadastrados no sistema.");
+            }
+            else
+            {
+                System.Console.WriteLine($"Total de {clientsList.Count} clientes encontrados.");
+                foreach (Client c in clientsList)
+                {
+                    System.Console.WriteLine($"{c.Id}: {c.Name} - {c.Cpf}");
+                }
+            }
             break;
 
         case 0:
