@@ -74,8 +74,6 @@ while (!stopLoop)
                     Console.WriteLine($"{productFound.Id}: {productFound.Name}, preço: R$ {productFound.Price.ToString("F2", CultureInfo.InvariantCulture)}, estoque: {productFound.QuantityInStock}");
                 }
             }
-            Console.WriteLine("Pressione qualquer tecla para seguir...");
-            Console.ReadKey();
             break;
 
         case 3:
@@ -116,9 +114,6 @@ while (!stopLoop)
                 }
             }
 
-            Console.WriteLine("Pressione qualquer tecla para seguir...");
-            Console.ReadKey();
-
             break;
         case 4:
             Console.Clear();
@@ -136,8 +131,6 @@ while (!stopLoop)
                     Console.WriteLine($"{productInList.Id}: {productInList.Name}, preço ${productInList.Price}, quantidade: {productInList.QuantityInStock}");
                 }
             }
-            Console.WriteLine("Pressione qualquer tecla para seguir...");
-            Console.ReadKey();
 
             break;
 
@@ -153,18 +146,48 @@ while (!stopLoop)
             Console.Write("CPF: ");
             string cpf = Console.ReadLine();
             clientsList.Add(new Client(id, name, cpf));
-            Console.WriteLine("Pressione qualquer tecla para seguir...");
-            Console.ReadKey();
             break;
 
         case 6:
-        
+            Console.Clear();
+            Console.WriteLine("======================");
+            Console.WriteLine("== BUSCA DE CLIENTE ==");
+            Console.WriteLine("======================");
+            if (clientsList.Count == 0)
+            {
+                System.Console.WriteLine("Não há clientes cadastrados no sistema.");
+            }
+            else
+            {
+                Client clientSearch = new Client();
+                clientSearch.Id = -1;
+                System.Console.Write("Insira o ID do cliente que deseja buscar: ");
+                int idSearch = int.Parse(Console.ReadLine());
+                foreach (Client client in clientsList)
+                {
+                    if (client.Id == idSearch)
+                    {
+                        clientSearch = client;
+                    }
+                }
+                if (clientSearch.Id == -1)
+                {
+                    System.Console.WriteLine("Usuário não está cadastrado em nosso sistema.");
+                }
+                else
+                {
+                    System.Console.WriteLine($"{clientSearch.Id}: {clientSearch.Name} - {clientSearch.Cpf} ");
+                }
+            }
             break;
 
         case 0:
-            Console.WriteLine("Obrigado por usar nosso sistema! Até mais! Pressione qualquer tecla para sair...");
-            Console.ReadKey();
+            Console.WriteLine("Obrigado por usar nosso sistema!");
             stopLoop = true;
             break;
+
     }
+    Console.WriteLine("Pressione qualquer tecla para seguir...");
+    Console.ReadKey();
+
 }
