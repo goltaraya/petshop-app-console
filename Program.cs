@@ -1,7 +1,9 @@
 ﻿// Sistema para controle de Produtos de um Petshop
 using System.Globalization;
+using PetShop;
 
 var menu = new Menu();
+List<Client> clientsList = new List<Client>();
 List<Product> productsList = new List<Product>();
 
 bool stopLoop = false;
@@ -18,37 +20,36 @@ while (!stopLoop)
     {
         case 1:
             Console.Clear();
-            System.Console.WriteLine("==========================");
-            System.Console.WriteLine("== CADASTRO DE PRODUTOS ==");
-            System.Console.WriteLine("==========================");
-            System.Console.Write("ID: ");
+            Console.WriteLine("==========================");
+            Console.WriteLine("== CADASTRO DE PRODUTOS ==");
+            Console.WriteLine("==========================");
+            Console.Write("ID: ");
             int id = int.Parse(Console.ReadLine());
-            System.Console.Write("Nome: ");
+            Console.Write("Nome: ");
             string name = Console.ReadLine();
-            System.Console.Write("Descrição: ");
+            Console.Write("Descrição: ");
             string description = Console.ReadLine();
-            System.Console.Write("Preço: ");
+            Console.Write("Preço: ");
             double price = double.Parse(Console.ReadLine(), CultureInfo.InvariantCulture);
-            System.Console.Write("Quantidade em estoque: ");
+            Console.Write("Quantidade em estoque: ");
             int quantityInStock = int.Parse(Console.ReadLine());
-            Product product = new Product(id, name, description, price, quantityInStock);
-            productsList.Add(product);
+            productsList.Add(new Product(id, name, description, price, quantityInStock));
             break;
 
         case 2:
             Console.Clear();
-            System.Console.WriteLine("=======================");
-            System.Console.WriteLine("== BUSCA DE PRODUTOS ==");
-            System.Console.WriteLine("=======================");
+            Console.WriteLine("=======================");
+            Console.WriteLine("== BUSCA DE PRODUTOS ==");
+            Console.WriteLine("=======================");
             if (productsList.Count == 0)
             {
-                System.Console.WriteLine("Não existem produtos cadastrados");
+                Console.WriteLine("Não existem produtos cadastrados");
             }
             else
             {
 
 
-                System.Console.Write("Insira o ID do produto que deseja buscar: ");
+                Console.Write("Insira o ID do produto que deseja buscar: ");
                 int idSearch = int.Parse(Console.ReadLine());
 
                 Product productFound = new Product
@@ -66,29 +67,29 @@ while (!stopLoop)
                 };
                 if (productFound.Id == -1)
                 {
-                    System.Console.WriteLine("O produto aparentemente não está cadastrado no sistema.");
+                    Console.WriteLine("O produto aparentemente não está cadastrado no sistema.");
                 }
                 else
                 {
-                    System.Console.WriteLine($"{productFound.Id}: {productFound.Name}, preço: R$ {productFound.Price.ToString("F2", CultureInfo.InvariantCulture)}, estoque: {productFound.QuantityInStock}");
+                    Console.WriteLine($"{productFound.Id}: {productFound.Name}, preço: R$ {productFound.Price.ToString("F2", CultureInfo.InvariantCulture)}, estoque: {productFound.QuantityInStock}");
                 }
             }
-            System.Console.WriteLine("Pressione qualquer tecla para seguir...");
+            Console.WriteLine("Pressione qualquer tecla para seguir...");
             Console.ReadKey();
             break;
 
         case 3:
             Console.Clear();
-            System.Console.WriteLine("=====================");
-            System.Console.WriteLine("== DELETAR PRODUTO ==");
-            System.Console.WriteLine("=====================");
+            Console.WriteLine("=====================");
+            Console.WriteLine("== DELETAR PRODUTO ==");
+            Console.WriteLine("=====================");
             if (productsList.Count == 0)
             {
-                System.Console.WriteLine("Não existem produtos cadastrados");
+                Console.WriteLine("Não existem produtos cadastrados");
             }
             else
             {
-                System.Console.Write("Insira o ID do produto que deseja deletar: ");
+                Console.Write("Insira o ID do produto que deseja deletar: ");
                 int idSearch = int.Parse(Console.ReadLine());
 
                 Product productFound = new Product
@@ -106,47 +107,63 @@ while (!stopLoop)
                 };
                 if (productFound.Id == -1)
                 {
-                    System.Console.WriteLine("O produto aparentemente não está cadastrado no sistema.");
+                    Console.WriteLine("O produto aparentemente não está cadastrado no sistema.");
                 }
                 else
                 {
                     productsList.Remove(productFound);
-                    System.Console.WriteLine($"Produto {productFound.Name} ({productFound.Id}) excluído");
+                    Console.WriteLine($"Produto {productFound.Name} ({productFound.Id}) excluído");
                 }
             }
 
-            System.Console.WriteLine("Pressione qualquer tecla para seguir...");
+            Console.WriteLine("Pressione qualquer tecla para seguir...");
             Console.ReadKey();
 
             break;
         case 4:
             Console.Clear();
-            System.Console.WriteLine("=============");
-            System.Console.WriteLine("== ESTOQUE ==");
-            System.Console.WriteLine("=============");
+            Console.WriteLine("=============");
+            Console.WriteLine("== ESTOQUE ==");
+            Console.WriteLine("=============");
             if (productsList.Count == 0)
             {
-                System.Console.WriteLine("Não existem produtos cadastrados");
+                Console.WriteLine("Não existem produtos cadastrados");
             }
             else
             {
                 foreach (Product productInList in productsList)
                 {
-                    System.Console.WriteLine($"{productInList.Id}: {productInList.Name}, preço ${productInList.Price}, quantidade: {productInList.QuantityInStock}");
+                    Console.WriteLine($"{productInList.Id}: {productInList.Name}, preço ${productInList.Price}, quantidade: {productInList.QuantityInStock}");
                 }
             }
-            System.Console.WriteLine("Pressione qualquer tecla para seguir...");
+            Console.WriteLine("Pressione qualquer tecla para seguir...");
             Console.ReadKey();
 
             break;
 
         case 5:
-            
+            Console.Clear();
+            Console.WriteLine("=========================");
+            Console.WriteLine("== CADASTRO DE CLIENTE ==");
+            Console.WriteLine("=========================");
+            Console.Write("ID: ");
+            id = int.Parse(Console.ReadLine());
+            Console.Write("Nome: ");
+            name = Console.ReadLine();
+            Console.Write("CPF: ");
+            string cpf = Console.ReadLine();
+            clientsList.Add(new Client(id, name, cpf));
+            Console.WriteLine("Pressione qualquer tecla para seguir...");
+            Console.ReadKey();
+            break;
+
+        case 6:
+        
             break;
 
         case 0:
-            System.Console.WriteLine("Obrigado por usar nosso sistema! Até mais! Pressione qualquer tecla para sair...");
-            System.Console.ReadKey();
+            Console.WriteLine("Obrigado por usar nosso sistema! Até mais! Pressione qualquer tecla para sair...");
+            Console.ReadKey();
             stopLoop = true;
             break;
     }
