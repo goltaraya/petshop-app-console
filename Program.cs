@@ -78,9 +78,9 @@ while (!stopLoop)
 
         case 3:
             Console.Clear();
-            Console.WriteLine("=====================");
-            Console.WriteLine("== DELETAR PRODUTO ==");
-            Console.WriteLine("=====================");
+            Console.WriteLine("========================");
+            Console.WriteLine("== REMOÇÃO DE PRODUTO ==");
+            Console.WriteLine("========================");
             if (productsList.Count == 0)
             {
                 Console.WriteLine("Não existem produtos cadastrados");
@@ -179,6 +179,42 @@ while (!stopLoop)
                     System.Console.WriteLine($"{clientSearch.Id}: {clientSearch.Name} - {clientSearch.Cpf} ");
                 }
             }
+            break;
+
+        case 7:
+            Console.Clear();
+            Console.WriteLine("========================");
+            Console.WriteLine("== REMOÇÃO DE CLIENTE ==");
+            Console.WriteLine("========================");
+            if (clientsList.Count == 0)
+            {
+                System.Console.WriteLine("Não há clientes cadastrados no sistema.");
+            }
+            else
+            {
+                System.Console.Write("Insira o ID do cliente que deseja remover: ");
+                int idSearch = int.Parse(Console.ReadLine());
+
+                Client client = new Client { Id = -1 };
+
+                foreach (Client clientSearch in clientsList)
+                {
+                    if (clientSearch.Id == idSearch)
+                    {
+                        client = clientSearch;
+                    }
+                }
+                if (client.Id == -1)
+                {
+                    System.Console.WriteLine("Cliente não encontrado.");
+                }
+                else
+                {
+                    System.Console.WriteLine("Cliente removido com sucesso!");
+                    clientsList.Remove(client);
+                }
+            }
+
             break;
 
         case 0:
